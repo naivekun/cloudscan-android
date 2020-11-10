@@ -31,7 +31,7 @@ import java.util.List;
 
 public class CaptureActivity extends Activity {
 
-    private final String SERVER_URL = "http://cloudscan.naivekun.wtf:3000";
+    private String SERVER_URL;
     private DecoratedBarcodeView barcodeView;
     private TextView decodeMessage;
     private String lastDecodedMessage;
@@ -97,6 +97,7 @@ public class CaptureActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+        SERVER_URL = getIntent().getStringExtra("server_addr");
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
